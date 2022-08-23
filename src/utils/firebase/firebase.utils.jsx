@@ -4,6 +4,7 @@ import {
   getAuth,
   signInWithRedirect,
   signInWithPopup,
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
 } from 'firebase/auth';
@@ -25,20 +26,26 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 // it just one provider
+
 const googleProvider = new GoogleAuthProvider();
 // google wants that
+
 googleProvider.setCustomParameters({
   prompt: 'select_account',
 });
+
 // authentication similar
 export const auth = getAuth();
 // popup google window
+
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
+
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
+
 // create a user
 export const createUserDocumentFromAuth = async (
   userAuth,
@@ -78,4 +85,12 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+// to sign in with a password we need email and password to pass
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+  // if we don't have an email or password exit
+  if (!email || !password) return;
+  // if we have right email and password let's sign in and pass authentication with email and password
+  return await signInWithEmailAndPassword(auth, email, password);
 };
