@@ -99,6 +99,9 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 // to sign out we will use authentication
 export const signOutUser = async () => await signOut(auth);
 
-// permanent listener stays and listen stop on unmount
+// permanent listener stays and listen stop on unmount. Create a listener for me using this callback
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+
+  
