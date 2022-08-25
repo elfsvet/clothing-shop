@@ -6,6 +6,7 @@ import {
 import FormInput from '../form-input/form-input.component';
 import './sign-up-form.styles.scss';
 import Button from '../button/button.component';
+
 const defaultFormField = {
   displayName: '',
   email: '',
@@ -17,8 +18,6 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormField);
 
   const { displayName, email, password, confirmPassword } = formFields;
-
-  console.log(formFields);
 
   const resetFormFields = () => {
     setFormFields(defaultFormField);
@@ -36,13 +35,15 @@ const SignUpForm = () => {
     // if it matches
     try {
       // create a response variable passing to createAuthUserWithEmailAndPassword 2 arguments email and password
+
       const { user } = await createAuthUserWithEmailAndPassword(
         email,
         password
       );
-      // if we get the response it will pass it to createUserDocumentFromAuth
 
+      // if we get the response it will pass it to createUserDocumentFromAuth
       await createUserDocumentFromAuth(user, { displayName });
+
       // if it succeeds
       resetFormFields();
 

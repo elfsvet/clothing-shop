@@ -7,6 +7,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
@@ -94,3 +96,9 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   // if we have right email and password let's sign in and pass authentication with email and password
   return await signInWithEmailAndPassword(auth, email, password);
 };
+// to sign out we will use authentication
+export const signOutUser = async () => await signOut(auth);
+
+// permanent listener stays and listen stop on unmount
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);
