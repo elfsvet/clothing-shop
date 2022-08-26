@@ -3,6 +3,7 @@ import { Fragment, useContext } from 'react';
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import './navigation.styles.scss';
 import { UserContext } from '../../contexts/user.context';
+import { CartContext } from '../../contexts/cart.context';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
@@ -10,7 +11,7 @@ import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component
 const Navigation = () => {
   // we leveraging the currentUser we got from useContext
   const { currentUser } = useContext(UserContext);
-
+  const { isCartOpen } = useContext(CartContext);
   return (
     <Fragment>
       <div className='navigation'>
@@ -33,7 +34,7 @@ const Navigation = () => {
           <CartIcon />
         </div>
         {/* need to figure out how to toggle this to show and hide on click use state. */}
-        <CartDropdown />
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </Fragment>
