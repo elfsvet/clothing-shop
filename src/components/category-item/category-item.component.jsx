@@ -1,23 +1,39 @@
-import './category-item.styles.scss'
+import './category-item.styles.scss';
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/cart.context';
 
+const CategoryItem = ({ cartItem }) => {
+  const { clearItemFromCart, addItemToCart, removeItemToCart } =
+    useContext(CartContext);
+  const clearItemHandler = () => clearItemFromCart(cartItem);
 
-const CategoryItem = ({category}) => {
+  const { name, price, imageUrl, quantity } = cartItem;
 
-    const {imageUrl, title} = category;
+  const addItemHandler = () => addItemToCart(cartItem);
+  const removeItemHandler = () => removeItemToCart(cartItem);
 
   return (
     <div className='category-item-container'>
-    <div
-      className='background-image'
-      // custom style
-      style={{ backgroundImage: `url(${imageUrl})` }}
-    />
-    <div className='category-body-container'>
-      <h2>{title}</h2>
-      <p>Shop Now</p>
-    </div>
-  </div>
-  )
-}
+      <div className='image-container'>
+        <img src={imageUrl} alt={name} />
+      </div>
+      <span className='name'>{name}</span>
+      <span className='quantity'>
+        <div className='arrow' onClick={removeItemHandler}>
+          &#10094;
+        </div>
+        <span className='value'>{quantity}</span>
+        <div className='arrow' onClick={addItemHandler}>
+          &#10095;
+        </div>
+      </span>
+      <span className='price'>${price}</span>
 
-export default CategoryItem
+      <div className='remove-button' onClick={clearItemHandler}>
+        &#10005;
+      </div>
+    </div>
+  );
+};
+
+export default CategoryItem;
