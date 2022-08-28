@@ -1,4 +1,4 @@
-import './directory-item.styles.scss'
+import {DirectoryItemContainer} from './directory-item.styles'
 
 
 const DirectoryItem = ({category}) => {
@@ -6,7 +6,7 @@ const DirectoryItem = ({category}) => {
     const {imageUrl, title} = category;
 
   return (
-    <div className='directory-item-container'>
+    <DirectoryItemContainer>
     <div
       className='background-image'
       // custom style
@@ -16,7 +16,7 @@ const DirectoryItem = ({category}) => {
       <h2>{title}</h2>
       <p>Shop Now</p>
     </div>
-  </div>
+  </DirectoryItemContainer>
   )
 }
 
