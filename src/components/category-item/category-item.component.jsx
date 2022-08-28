@@ -1,4 +1,4 @@
-import './category-item.styles.scss';
+import {CategoryItemContainer} from './category-item.styles';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 
@@ -13,7 +13,7 @@ const CategoryItem = ({ cartItem }) => {
   const removeItemHandler = () => removeItemToCart(cartItem);
 
   return (
-    <div className='category-item-container'>
+    <CategoryItemContainer>
       <div className='image-container'>
         <img src={imageUrl} alt={name} />
       </div>
@@ -32,7 +32,7 @@ const CategoryItem = ({ cartItem }) => {
       <div className='remove-button' onClick={clearItemHandler}>
         &#10005;
       </div>
-    </div>
+    </CategoryItemContainer>
   );
 };
 

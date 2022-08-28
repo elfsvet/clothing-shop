@@ -1,14 +1,7 @@
-$sub-color: grey;
-$main-color: black;
+import styled from 'styled-components'
 
-@mixin shrinkLabel {
-  top: -14px;
-  font-size: 12px;
-  color: $main-color;
-}
-
-.group {
-  position: relative;
+export const Group = styled.div`
+position: relative;
   margin: 45px 0;
 
   .form-input {
@@ -51,4 +44,13 @@ $main-color: black;
       @include shrinkLabel();
     }
   }
-}
+`
+
+// $sub-color: grey;
+// $main-color: black;
+
+// @mixin shrinkLabel {
+//   top: -14px;
+//   font-size: 12px;
+//   color: $main-color;
+// }
