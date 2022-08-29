@@ -6,7 +6,7 @@ import {
 } from '../../utils/firebase/firebase.utils';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
-import { SignInContainer } from './sign-in-form.styles';
+import { SignInContainer, ButtonContainer } from './sign-in-form.styles';
 
 const defaultFormField = {
   email: '',
@@ -88,7 +88,7 @@ const SignInForm = () => {
           name='password'
           value={password}
         />
-        <div className='buttons-container'>
+        <ButtonContainer>
           <Button type='submit'>Sign In</Button>
           <Button
             type='button'
@@ -97,7 +97,7 @@ const SignInForm = () => {
           >
             Google sign in
           </Button>
-        </div>
+        </ButtonContainer>
       </form>
     </SignInContainer>
   );

@@ -1,4 +1,12 @@
-import {CategoryItemContainer} from './category-item.styles';
+import {
+  CategoryItemContainer,
+  Image,
+  ImageContainer,
+  Quantity,
+  RemoveButton,
+  Name,
+  Price,
+} from './category-item.styles';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 
@@ -14,11 +22,11 @@ const CategoryItem = ({ cartItem }) => {
 
   return (
     <CategoryItemContainer>
-      <div className='image-container'>
-        <img src={imageUrl} alt={name} />
-      </div>
-      <span className='name'>{name}</span>
-      <span className='quantity'>
+      <ImageContainer>
+        <Image src={imageUrl} alt={name} />
+      </ImageContainer>
+      <Name>{name}</Name>
+      <Quantity>
         <div className='arrow' onClick={removeItemHandler}>
           &#10094;
         </div>
@@ -26,12 +34,10 @@ const CategoryItem = ({ cartItem }) => {
         <div className='arrow' onClick={addItemHandler}>
           &#10095;
         </div>
-      </span>
-      <span className='price'>${price}</span>
+      </Quantity>
+      <Price>${price}</Price>
 
-      <div className='remove-button' onClick={clearItemHandler}>
-        &#10005;
-      </div>
+      <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
     </CategoryItemContainer>
   );
 };
