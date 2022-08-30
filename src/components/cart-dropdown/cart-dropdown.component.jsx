@@ -9,8 +9,12 @@ import Button from '../button/button.component';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 import { Link, useNavigate } from 'react-router-dom';
+// import { CategoriesContext } from '../../contexts/categories.context';
+
 const CartDropdown = () => {
   const { cartItems } = useContext(CartContext);
+  // const {categoriesMap} = useContext(CategoriesContext);
+  // console.log(categoriesMap)
   const navigate = useNavigate();
   const goToCheckoutHandler = () => {
     navigate('/checkout');
