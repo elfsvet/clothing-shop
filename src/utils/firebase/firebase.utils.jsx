@@ -24,7 +24,7 @@ import {
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// My web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyBwKIYQ30aiOzy8wB5CGkFgdOPYjhG8j7g',
   authDomain: 'crwn-clothing-db-e0783.firebaseapp.com',
